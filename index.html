@@ -1,234 +1,572 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head>
-	<meta name="description" content="Zihan Zang">
-	<meta name="keywords" content="zihan zang, computational imaging, interferometry, tsinghua university, thu">
-	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-	<link href="index_files/css.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<style type="text/css">
-/* Stolen from Sergey */
-/* CSS and a lot of HTML copied from Jon Barron's website. */
-	a {
-		color: #1772d0;
-		text-decoration:none;
-	}
-	a:focus, a:hover { 
-		color: #f09228;
-		text-decoration:none;
-	}
-	table {
-		border-collapse: collapse;
-		border-spacing: 0;
-	}
-	body,td {
-		font-family: 'Lato', Verdana, Helvetica, sans-serif;
-		font-size: 15px
-	}
-	th {
-		font-family: 'Lato', Verdana, Helvetica, sans-serif;
-		font-size: 15px;
-		height:100px;
-		border-spacing: 0px
-	}
-	img {
-		display: block;
-  		margin-left: auto;
-  		margin-right: auto;
-	}
-	strong {
-		font-family: 'Lato', Verdana, Helvetica, sans-serif;
-		font-size: 14px
-	}
-	</style>
-	<title>Zihan Zang</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zihan Zang - Optical Engineer & Computational Imaging Scientist">
+    <meta name="keywords" content="zihan zang, computational imaging, optical engineering, LiDAR, diffractive optics, UCLA, postdoc">
+    <title>Zihan Zang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --surface: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-content .title {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .header-content .location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .bio {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .contact-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        /* Section Headers */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        /* Research Interests */
+        .research-interests {
+            background: var(--surface);
+            padding: 32px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .research-interests p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        /* Current Work */
+        .current-work {
+            display: grid;
+            gap: 24px;
+        }
+
+        .work-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 24px;
+            padding: 24px;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .work-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .work-image {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: var(--border);
+        }
+
+        .work-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .work-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Publications */
+        .publications {
+            display: grid;
+            gap: 24px;
+        }
+
+        .publication {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 24px;
+            padding: 24px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .publication:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .publication.featured {
+            border-left: 4px solid var(--secondary-color);
+            background: linear-gradient(135deg, #fef3c7 0%, #fef9e7 100%);
+        }
+
+        .pub-image {
+            width: 140px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: var(--border);
+        }
+
+        .pub-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pub-content h3 a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .pub-content h3 a:hover {
+            color: var(--primary-color);
+        }
+
+        .pub-authors {
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .pub-venue {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pub-links a {
+            padding: 4px 12px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .pub-links a:hover {
+            background: var(--secondary-color);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        /* Hobbies */
+        .hobbies {
+            background: var(--surface);
+            padding: 32px;
+            border-radius: 12px;
+        }
+
+        .music-samples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .music-sample {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.2s;
+        }
+
+        .music-sample:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .work-item,
+            .publication {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            .music-samples {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
-<table align="center" border="0" cellpadding="20" width="800">
-<tbody>
-<tr>
-	<td>
-	<table align="center" border="0" cellpadding="10" width="100%">
-	<tbody>
-	<tr>
-		<td valign="top" width="70%">
-		<p align="center">&nbsp;</p>
-		<p align="center"><font size="7">Zihan Zang</font></p>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Zihan Zang, PhD</h1>
+                <div class="title">Optical Engineer & Computational Imaging Scientist</div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Los Angeles, CA, USA
+                </div>
+                <div class="bio">
+                    I am currently a Postdoctoral Researcher in the <a href="https://www.bioeng.ucla.edu/" style="color: var(--primary-color);">Department of Bioengineering</a> at <a href="https://www.ucla.edu/" style="color: var(--primary-color);">UCLA</a>. I completed my PhD in Electronic Engineering at <a href="https://www.tsinghua.edu.cn/en/" style="color: var(--primary-color);">Tsinghua University</a> in 2023, where I was advised by <a href="https://www.ee.tsinghua.edu.cn/en/info/1054/1212.htm" style="color: var(--primary-color);">Yi Luo</a>. My research focuses on optical systems design, diffractive optics, and computational imaging with applications in LiDAR, advanced microscopy, and 3D sensing.
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:zihan.thu@gmail.com">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=pmxGVk8AAAAJ">
+                        <i class="fas fa-graduation-cap"></i> Scholar
+                    </a>
+                    <a href="https://github.com/zangzh17">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://zangzh17.github.io">
+                        <i class="fas fa-globe"></i> Website
+                    </a>
+                </div>
+            </div>
+            <img src="index_files/photo.jpg" alt="Zihan Zang" class="profile-image">
+        </header>
 
-		<p><font size="3">
-            I am currently a PhD student in the <a href="https://www.ee.tsinghua.edu.cn/en/">Electronic Engineering</a> at <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a>, where my advisor is <a href="https://www.ee.tsinghua.edu.cn/en/info/1054/1212.htm">Yi Luo</a>. I received my bachelor's degree in 2017 from the <a href="https://www.ee.tsinghua.edu.cn/en/">Department of Electronic Engineering</a> at <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a>.
-			</font>
-        </p>
-		<p align="center"><font size="3">
-            <a href="mailto:zangzh17@mails.tsinghua.edu.cn">[email]</a>&ensp;/&ensp;<a href="index_files/CV_zihan_zang.pdf">[CV]</a>&ensp;/&ensp;<a href="https://scholar.google.com/citations?user=pmxGVk8AAAAJ">[google scholar]</a>&ensp;/&ensp;<a href="https://github.com/zangzh17/">[github]</a>
-		</font>
-		</p>
-		</td>
-		<td width="30%"><img width="85%" src="index_files/photo.jpg" alt="that's me"></td>
-	</tr>
-	</tbody>
-	</table>
+        <!-- Research Interests -->
+        <section class="section">
+            <h2>Research Interests</h2>
+            <div class="research-interests">
+                <p>
+                    My research spans <strong>optical systems design</strong> and <strong>computational imaging</strong> with a focus on next-generation sensing technologies. I specialize in the design and fabrication of diffractive optical elements (DOEs) and freeform optics, developing end-to-end optimization methods that integrate lithography physics with gradient-based design. My current work includes light-field microscopy for biomedical imaging, advanced LiDAR systems with novel beam steering mechanisms, and physics-based modeling using differentiable ray-tracing. I'm particularly interested in bridging the gap between optical hardware and computational algorithms to enable new imaging capabilities.
+                </p>
+            </div>
+        </section>
 
-	<!-- <p><span class="heading">Visit our group website: <a href="http://xxx">group name</a>.</span></p> -->
+        <!-- Current Work -->
+        <section class="section">
+            <h2>Current Research Projects</h2>
+            <div class="current-work">
+                <div class="work-item">
+                    <div class="work-image" style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="work-content">
+                        <h3>Light-Field Microscopy for Biomedical Imaging</h3>
+                        <p>Leading optical architecture for a light-field microscope achieving 5× resolution enhancement via compressive sensing. Designed custom NIR-II objective lens (1000–1300 nm, NA = 0.5) with GPU-accelerated reconstruction pipeline for 50 fps volumetric imaging.</p>
+                    </div>
+                </div>
+                
+                <div class="work-item">
+                    <div class="work-image" style="background: linear-gradient(45deg, #f59e0b, #ef4444); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <div class="work-content">
+                        <h3>Fabrication-Integrated DOE Design</h3>
+                        <p>Developed novel end-to-end optimization framework linking lithography physics to gradient-based optical design. Enables direct optimization of fabrication processes for 256-level diffractive optical elements with unprecedented accuracy.</p>
+                    </div>
+                </div>
 
-	<span class="h1">Research Interests</span>
-	<p>
-		I work on optical systems and the design/fabrication of diffractive/refractive optical elements (DOEs/ROEs). Particular problems I am interested in include LiDAR (laser radar), 3D sensing and computational imaging. For the LiDAR part, I mainly work on beam steering technology such as dispersion-based scan method (spectral scan). I am also interested in physics-based modeling. I developed end-to-end optimized design/fabrication method of diffractive optical elements, which combines lithography modeling and physical optics modeling. I also developed refractive optical elements or freeform optics design by using differentiable ray tracing.
-	</p><br />
+                <div class="work-item">
+                    <div class="work-image" style="background: linear-gradient(45deg, #10b981, #06b6d4); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                        <i class="fas fa-radar"></i>
+                    </div>
+                    <div class="work-content">
+                        <h3>Next-Generation LiDAR Systems</h3>
+                        <p>Pioneering spectral-scanning FMCW LiDAR with diffractive FOV expansion and solid-state 2D beam steering. Demonstrated parallel single-pixel LiDAR reaching 100k fps depth capture using spectro-temporal encoding.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-	<span class="h1">Ongoing Projects</span>
-	<table align="center" border="0" cellpadding="20" width="100%">
-	<tbody>
-		<tr>
-			<td width="25%"><img src="index_files/freeform_opt.gif" alt="vision" style="border-style: none" height="70" width="90"></td>
-			<td valign="top" width="75%">
-			<p><span class="heading">
-				Freeform optics design by combining optimal transport theory and differentiable ray tracing. The solution given by optimal transport solver is used as the initial value.</span>
-			</p>
-			</td>
-		</tr>
-		<tr>
-			<td width="25%"><img src="index_files/gauss.jpg" alt="vision" style="border-style: none" height="100" width="100"></td>
-			<td valign="top" width="75%">
-			<p><span class="heading">
-				Fabrication of 256-level diffractive optical elements (DOEs) by end-to-end optimization with 'fabrication model in the loop'.</span>
-			</p>
-			</td>
-		</tr>
-		<tr>
-			<td width="25%"><img src="index_files/fast_lidar.jpg" alt="vision" style="border-style: none" height="120" width="170"></td>
-			<td valign="top" width="75%">
-			<p><span class="heading">
-				VIPA-based LiDAR with unprecedented high framerate (>1 kfps) and high resolution (>200 lines). A low-cost VCSEL is used as the swept source.</span>
-			</p>
-			</td>
-		</tr>
-		<tr>
-			<td width="15%"><img src="index_files/vision.png" alt="vision" style="border-style: none" height="90" width="170"></td>
-			<td valign="top" width="85%">
-			<p>
-				<a href="index_files/vision.pdf" id="vision"><span class="heading">DAD vision: opto-electronic co-designed computer vision with division adjoint method</span></a><br />
-				<strong>Zihan Zang</strong>, Yunpeng Xu, Haoqiang Wang, Yanjun Han, Hongtao Li, Yi Luo<br />
-				Arxiv (submitting), 2022 <br />
-				<a href="index_files/vision.pdf">paper</a>
-			</p>
-			</td>
-		</tr>
-	</tbody></table>
+        <!-- Selected Publications -->
+        <section class="section">
+            <h2>Selected Publications</h2>
+            <div class="publications">
+                <div class="publication featured">
+                    <div class="pub-image" style="background: linear-gradient(45deg, #f59e0b, #ef4444); display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="pub-content">
+                        <h3><a href="#">Fabrication-integrated design for diffractive optical elements</a><span class="badge">NEW</span></h3>
+                        <div class="pub-authors">Xu, Y., <strong>Zang, Z.</strong> (co-first author & corresponding author), Wang, H., Han, Y., Li, H., Luo, Y., Wang, L., et al.</div>
+                        <div class="pub-venue">Optica 12(2), 228-238, 2025</div>
+                        <div class="pub-links">
+                            <a href="#">Paper</a>
+                        </div>
+                    </div>
+                </div>
 
-	<span class="h1">Publications</span>
-	<table align="center" border="0" cellpadding="20" width="100%">
-	<tbody>
+                <div class="publication">
+                    <div class="pub-image" style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="pub-content">
+                        <h3><a href="#">Towards an ultrafast 3D imaging scanning LiDAR system: a review</a></h3>
+                        <div class="pub-authors">Li, Z., Han, Y., Wu, L., <strong>Zang, Z.</strong>, Dai, M., Set, S.Y., Yamashita, S., Li, Q., Fu, H.Y.</div>
+                        <div class="pub-venue">Photonics Research 12(8), 1709-1729, 2024</div>
+                        <div class="pub-links">
+                            <a href="#">Paper</a>
+                        </div>
+                    </div>
+                </div>
 
-	<tr>
-		<td width="15%"><img src="index_files/lidar1.png" alt="lidar1" style="border-style: none" height="130" width="220"></td>
-		<td valign="top" width="85%">
-		<p>
-			<a href="https://ieeexplore.ieee.org/abstract/document/9826837/" id="lidar1"><span class="heading">Spectrally Scanning LiDAR Based on Wide-Angle Agile Diffractive Beam Steering</span></a><br />
-			<strong>Zihan Zang</strong>, Yunpeng Xu, Haoqiang Wang, Zhi Li, Yanjun Han, Hongtao Li, H.Y. Fu, Yi Luo<br />
-			IEEE Photonics Technology Letters, 2022 &<br />
-			Asia Communications and Photonics Conference (ACP), 2022 <i>(Postdeadline paper 1/10)</i><br />
-			<a href="https://ieeexplore.ieee.org/abstract/document/9826837/">paper</a>| <a href="https://opg.optica.org/abstract.cfm?uri=acpc-2021-T4D.6">conference</a>
-		</p>
-		</td>
-	</tr>
+                <div class="publication">
+                    <div class="pub-image" style="background: linear-gradient(45deg, #10b981, #06b6d4); display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <div class="pub-content">
+                        <h3><a href="#">Enhancing the field-of-view of spectral-scanning FMCW LiDAR by multipass configuration with an echelle grating</a></h3>
+                        <div class="pub-authors">Han, Y., <strong>Zang, Z.</strong>, Wu, L., Hao, Y., Zhu, Q., Chang-Hasnain, C., Fu, H.Y.</div>
+                        <div class="pub-venue">Optics Letters 49(11), 3267-3270, 2024</div>
+                        <div class="pub-links">
+                            <a href="#">Paper</a>
+                        </div>
+                    </div>
+                </div>
 
-	<tr>
-		<td width="15%"><img src="index_files/lidar2.jpg" alt="lidar2" style="border-style: none" height="130" width="235"></td>
-		<td valign="top" width="85%">
-		<p>
-			<a href="https://aip.scitation.org/doi/full/10.1063/5.0071885" id="lidar2"><span class="heading">Ultrafast parallel single-pixel LiDAR with all-optical spectro-temporal encoding</span></a><br />
-			<strong>Zihan Zang</strong>, Zhi Li, Yi Luo, Yanjun Han, Hongtao Li, Xuanyi Liu, H.Y. Fu<br />
-			APL Photonics, 2022 & <br />
-			Conference on Lasers and Electro-Optics (CLEO, oral), 2021 <br />
-			<a href="https://aip.scitation.org/doi/full/10.1063/5.0071885">paper</a> | <a href="https://ieeexplore.ieee.org/abstract/document/9571483/">conference</a>
-		</p>
-		</td>
-	</tr>
+                <div class="publication">
+                    <div class="pub-image" style="background: linear-gradient(45deg, #8b5cf6, #ec4899); display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="pub-content">
+                        <h3><a href="https://aip.scitation.org/doi/full/10.1063/5.0071885">Ultrafast parallel single-pixel LiDAR with all-optical spectro-temporal encoding</a></h3>
+                        <div class="pub-authors"><strong>Zang, Z.</strong>, Li, Z., Luo, Y., Han, Y., Li, H., Liu, X., Fu, H.Y.</div>
+                        <div class="pub-venue">APL Photonics 7(4), 046102, 2022</div>
+                        <div class="pub-links">
+                            <a href="https://aip.scitation.org/doi/full/10.1063/5.0071885">Paper</a>
+                        </div>
+                    </div>
+                </div>
 
-	<tr>
-		<td width="15%"><img src="index_files/freeform.png" alt="freeform" style="border-style: none" height="90" width="200"></td>
-		<td valign="top" width="85%">
-		<p>
-			<a href="index_files/freeform.pdf" id="spot"><span class="heading">64 &times; 64 spot-array generation based on freeform optics</span></a><br />
-			Haoqiang Wang, <strong>Zihan Zang</strong>, Yunpeng Xu, Yanjun Han, Hongtao Li, Yi Luo<br />
-			CLEO Pacific Rim, 2022 (Oral)<br />
-			<a href="index_files/freeform.pdf">paper</a>
-		</p>
-		</td>
-	</tr>
-	
-	<tr>
-		<td width="15%"><img src="index_files/lidar2d.jpg" alt="lidar2d" style="border-style: none" height="90" width="180"></td>
-		<td valign="top" width="85%">
-		<p>
-			<a href="https://opg.optica.org/abstract.cfm?uri=oe-29-11-16547" id="lidar2d"><span class="heading">Solid-state FMCW LiDAR with two-dimensional spectral scanning using a virtually imaged phased array</span></a><br />
-			Zhi Li<sup>*</sup>, <strong>Zihan Zang<sup>*</sup></strong>, Yaqi Han, Lican Wu, H.Y. Fu<br />
-			Optics Express, 2021 <i>(Monthly top downloads of OE journal)</i><br />
-		<a href="https://opg.optica.org/abstract.cfm?uri=oe-29-11-16547">paper</a>
-		</p>
-		</td>
-	</tr>
-	<tr>
-		<td width="15%"><img src="index_files/comm.png" alt="comm" style="border-style: none" height="80" width="220"></td>
-		<td valign="top" width="85%">
-		<p>
-			<a href="https://opg.optica.org/abstract.cfm?uri=oe-29-13-20175" id="comm"><span class="heading">Multi-user accessible indoor infrared optical wireless communication systems employing VIPA-based 2D optical beam-steering technique</span></a><br />
-			Zhi Li<sup>*</sup>, <strong>Zihan Zang<sup>*</sup></strong>, Zixian Wei, Yaqi Han, Lican Wu, Zhenquan Zhao, Mutong Li, H.Y. Fu<br />
-			Optics Express, 2021 <br />
-		<a href="https://opg.optica.org/abstract.cfm?uri=oe-29-13-20175">paper</a>
-		</p>
-		</td>
-	</tr>
+                <div class="publication">
+                    <div class="pub-image" style="background: linear-gradient(45deg, #f59e0b, #ef4444); display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <div class="pub-content">
+                        <h3><a href="https://opg.optica.org/abstract.cfm?uri=oe-29-11-16547">Solid-state FMCW LiDAR with two-dimensional spectral scanning using a virtually imaged phased array</a><span class="badge">Top Downloads</span></h3>
+                        <div class="pub-authors">Li, Z.*, <strong>Zang, Z.*</strong>, Han, Y., Wu, L., Fu, H.Y.</div>
+                        <div class="pub-venue">Optics Express 29(11), 16547-16562, 2021</div>
+                        <div class="pub-links">
+                            <a href="https://opg.optica.org/abstract.cfm?uri=oe-29-11-16547">Paper</a>
+                        </div>
+                    </div>
+                </div>
 
-	<tr>
-		<td width="15%"><img src="index_files/vipa.jpg" alt="vipa" style="border-style: none" height="100" width="130"></td>
-		<td valign="top" width="85%">
-		<p>
-			<a href="https://opg.optica.org/abstract.cfm?uri=ao-60-8-2177" id="vipa"><span class="heading">Virtually imaged phased-array-based 2D nonmechanical beam-steering device for FMCW LiDAR</span></a><br />
-			Zhi Li<sup>*</sup>, <strong>Zihan Zang<sup>*</sup></strong>, H.Y. Fu, Yanjun Han<br />
-			Applied Optics, 2021<br />
-			<a href="https://opg.optica.org/abstract.cfm?uri=ao-60-8-2177">paper</a>
-		</p>
-		</td>
-	</tr>
+                <div class="publication">
+                    <div class="pub-image" style="background: linear-gradient(45deg, #10b981, #3b82f6); display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <div class="pub-content">
+                        <h3><a href="#">Spectrally Scanning LiDAR Based on Wide-Angle Agile Diffractive Beam Steering</a></h3>
+                        <div class="pub-authors"><strong>Zang, Z.</strong>, Xu, Y., Wang, H., Li, Z., Han, Y., Li, H., Fu, H.Y., Luo, Y.</div>
+                        <div class="pub-venue">IEEE Photonics Technology Letters 34(16), 850-853, 2022</div>
+                        <div class="pub-links">
+                            <a href="#">Paper</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-	<tr>
-		<td width="15%"><img src="index_files/lens.png" alt="lens" style="border-style: none" height="130" width="200"></td>
-		<td valign="top" width="85%">
-		<p>
-			<a href="https://arxiv.org/abs/2106.07872" id="lens"><span class="heading">Planar multi-aperture fish-eye lens using metagrating</span></a><br />
-			<strong>Zihan Zang</strong>, Haoqiang Wang, Yanjun Han, Hongtao Li, H.Y. FU, Yi Luo<br />
-			Arxiv (submitting), 2022<br />
-			<a href="https://arxiv.org/abs/2106.07872">paper</a>
-		</p>
-		</td>
-	</tr>
-	
+        <!-- Hobbies -->
+        <section class="section">
+            <h2>Beyond Research</h2>
+            <div class="hobbies">
+                <p style="margin-bottom: 20px;">
+                    I'm passionate about music composition and production, working across genres from classical and jazz to world music and electronics. I play piano, saxophone, and baroque recorder, and enjoy creating original compositions. Here are some of my musical samples:
+                </p>
+                <div class="music-samples">
+                    <a href="index_files/In-the-Moment.mp3" class="music-sample">
+                        <i class="fas fa-play-circle"></i>
+                        <span>In the Moment</span>
+                    </a>
+                    <a href="index_files/Memory-Loop.mp3" class="music-sample">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Memory Loop</span>
+                    </a>
+                    <a href="index_files/Sunrise-in-Gobi-Desert.mp3" class="music-sample">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Sunrise in Gobi Desert</span>
+                    </a>
+                    <a href="index_files/Childhood-Games.mp3" class="music-sample">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Childhood Games</span>
+                    </a>
+                    <a href="index_files/Morning-Market.mp3" class="music-sample">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Morning Market</span>
+                    </a>
+                    <a href="index_files/Remote-Hometown.mp3" class="music-sample">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Remote Hometown</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
 
-	</tbody></table>
-
-	<span class="h1">Hobbies</span>
-	<p>
-		I often find an interest in various kinds of music, including but not limited to classical, jazz, world music and electronic music. I love playing the piano, saxphone and baroque recorder. I also try music composition and production. Here are some of my samples (click to listen). <br />
-	</p>
-	<p>
-		&emsp;<a href="index_files/In-the-Moment.mp3"><i>In the Moment</i></a> <br/>
-		&emsp;<a href="index_files/Memory-Loop.mp3"><i>Memory Loop</i></a> <br/>
-		&emsp;<a href="index_files/Sunrise-in-Gobi-Desert.mp3"><i>Sunrise in Gobi Desert</i></a> <br/>
-		&emsp;<a href="index_files/Childhood-Games.mp3"><i>Childhood Games</i></a> <br/>
-		&emsp;<a href="index_files/Morning-Market.mp3"><i>Morning Market</i></a> <br/>
-		&emsp;<a href="index_files/Remote-Hometown.mp3"><i>Remote Hometown</i></a> <br/>
-	</p><br />
-
-<!-- <span class="heading">Teaching</span>
-	<p><a href="http://xxx"><span class="heading">CS283 Computer Vision - Fall 2010, 2012-2016 (Harvard, teaching fellow)</span></a></p> -->
-
-<!-- <span class="heading">Code</span>
-	<p>Code for projects is hosted at the <a href="https://github.com/xxx">xxx account</a>. I use the coding and style conventions described <a href="https://github.com/igkiou/cpp_dev">here</a> in all of my projects.</p> -->
-
-<div style="text-align:center; vertical-align:middle;">
-	<span>Last updated November 2022.</span> <a href="https://info.flagcounter.com/65yp"><img src="https://s01.flagcounter.com/count/65yp/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
-</div>
-
-</body></html>
+    <footer class="footer">
+        <p>Last updated May 2025 • © 2025 Zihan Zang</p>
+        <a href="https://info.flagcounter.com/65yp" style="margin-top: 10px; display: inline-block;">
+            <img src="https://s01.flagcounter.com/count/65yp/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
+        </a>
+    </footer>
+</body>
+</html>
