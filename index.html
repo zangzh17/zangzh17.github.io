@@ -191,8 +191,10 @@
         }
 
         .card {
-            width: 320px;    /* 固定宽度卡片 */
-            height: 360px;   /* 控制高度避免过高 */
+            width: 320px;
+            /* 固定宽度卡片 */
+            height: 360px;
+            /* 控制高度避免过高 */
             background: white;
             border-radius: 12px;
             overflow: hidden;
@@ -324,6 +326,73 @@
             margin-left: .35rem
         }
 
+        /* BLOG */
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            /* 更紧凑的垂直间距 */
+        }
+
+        .blog-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.8rem;
+            background: var(--surface);
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.025);
+            transition: all 0.2s ease;
+            align-items: center;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            background-color: #fdfdfd;
+        }
+
+        .blog-card img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .blog-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .blog-content h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin: 0 0 0.4rem;
+            color: var(--fg);
+        }
+
+        .blog-content p {
+            font-size: 0.9rem;
+            margin: 0 0 0.3rem;
+            color: var(--fg-sub);
+            line-height: 1.4;
+        }
+
+        .blog-meta {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+
+
         /* MUSIC */
         .hobbies {
             background: var(--surface);
@@ -383,6 +452,7 @@
             <li><a href="#about">Home</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#publications">Publications</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -390,32 +460,41 @@
 
 
     <!-- HERO -->
-<header id="about" class="hero">
-  <div>
-    <h1>Zihan Zang, PhD</h1>
-    <p class="tagline">Optical engineer bridging cutting-edge photonics research with manufacturable solutions for LiDAR, imaging, and AR systems.</p>
-    
-    <p class="about">
-      Currently a postdoctoral researcher in the <a href="https://www.iopticslab.seas.ucla.edu/">Intelligent Optics Lab</a> at UCLA Bioengineering, where I work with Prof. Liang Gao</a> on ultrafast imaging and fabrication-aware diffractive optics. I earned my Ph.D. in Electronic Engineering from Tsinghua University in 2023 (advisor: Prof. Yi Luo), receiving the Best Dissertation Award for my work on 3D sensing with diffractive optical elements.
-    </p>
-    
-    <p class="about">
-      My background spans 8+ years of full-stack optical system development—combining lens and DOE design (Zemax, CODE V, metalens, freeform, metagrating), cleanroom prototyping, and MEMS-based ToF LiDAR builds. I also build simulation pipelines and inverse-design tools using Python, C++, and PyTorch.
-    </p>
-    
-    <p class="about">
-      I have authored 15+ peer-reviewed publications as co-first or corresponding author in <em>Optica</em>, <em>Optics Express</em>, <em>APL Photonics</em>, and <em>Photonics Research</em>.
-    </p>
+    <header id="about" class="hero">
+        <div>
+            <h1>Zihan Zang, PhD</h1>
+            <p class="tagline">Optical engineer bridging cutting-edge photonics research with manufacturable solutions
+                for LiDAR, imaging, and AR systems.</p>
 
-    <div class="cta-links">
-      <a href="mailto:zihan.thu@gmail.com"><i class="fas fa-envelope"></i>Email</a>
-      <a href="https://scholar.google.com/citations?user=pmxGVk8AAAAJ"><i class="fas fa-graduation-cap"></i>Scholar</a>
-      <!-- <a href="https://github.com/zangzh17"><i class="fab fa-github"></i>GitHub</a> -->
-      <!-- <a href="/resume_ZangZihan.pdf"><i class="fas fa-file-lines"></i>Resume PDF</a> -->
-    </div>
-  </div>
-  <img src="/assets/hero.jpg" alt="Zihan Zang headshot">
-</header>
+            <p class="about">
+                Currently a postdoctoral researcher in the <a href="https://www.iopticslab.seas.ucla.edu/">Intelligent
+                    Optics Lab</a> at UCLA Bioengineering, where I work with Prof. Liang Gao</a> on ultrafast imaging
+                and fabrication-aware diffractive optics. I earned my Ph.D. in Electronic Engineering from Tsinghua
+                University in 2023 (advisor: Prof. Yi Luo), receiving the Best Dissertation Award for my work on 3D
+                sensing with diffractive optical elements.
+            </p>
+
+            <p class="about">
+                My background spans 8+ years of full-stack optical system development—combining lens and DOE design
+                (Zemax, CODE V, metalens, freeform, metagrating), cleanroom prototyping, and MEMS-based ToF LiDAR
+                builds. I also build simulation pipelines and inverse-design tools using Python, C++, and PyTorch.
+            </p>
+
+            <p class="about">
+                I have authored 15+ peer-reviewed publications as co-first or corresponding author in <em>Optica</em>,
+                <em>Optics Express</em>, <em>APL Photonics</em>, and <em>Photonics Research</em>.
+            </p>
+
+            <div class="cta-links">
+                <a href="mailto:zihan.thu@gmail.com"><i class="fas fa-envelope"></i>Email</a>
+                <a href="https://scholar.google.com/citations?user=pmxGVk8AAAAJ"><i
+                        class="fas fa-graduation-cap"></i>Scholar</a>
+                <!-- <a href="https://github.com/zangzh17"><i class="fab fa-github"></i>GitHub</a> -->
+                <!-- <a href="/resume_ZangZihan.pdf"><i class="fas fa-file-lines"></i>Resume PDF</a> -->
+            </div>
+        </div>
+        <img src="/assets/hero.jpg" alt="Zihan Zang headshot">
+    </header>
 
 
 
@@ -562,6 +641,42 @@
             </div>
         </div>
     </section>
+
+
+
+
+    <!-- BLOG -->
+    <section id="blog" class="section">
+        <h2>Blog</h2>
+        <div class="blog-list">
+            <a href="blog/01_doe_design_lessons.html" class="blog-card-link">
+                <article class="blog-card">
+                    <!-- <img src="assets/blog_doe_lesson.jpg" alt="Blog image"> -->
+                    <div class="blog-content">
+                        <h3>What I Learned from DOE Design for Manufacturing</h3>
+                        <p>From phase errors to photolithography limits: lessons from building a differentiable
+                            framework
+                            that actually works.</p>
+                        <div class="blog-meta">Jan 2025 • DOE | Fabrication</div>
+                    </div>
+                </article>
+            </a>
+
+            <a href="blog/02_career_notes_industry_photonics.html" class="blog-card-link">
+                <article class="blog-card">
+                    <!-- <img src="assets/blog_industry_path.jpg" alt="Blog image"> -->
+                    <div class="blog-content">
+                        <h3>Industry or Academia? Navigating Photonics Careers</h3>
+                        <p>Reflections on making research transferable to products—and what surprised me most when
+                            shifting
+                            mindset.</p>
+                        <div class="blog-meta">Mar 2025 | Career Path</div>
+                    </div>
+                </article>
+            </a>
+        </div>
+    </section>
+
 
 
 
