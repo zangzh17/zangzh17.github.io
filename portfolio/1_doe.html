@@ -172,12 +172,12 @@
 
         <h2>Approach</h2>
         <div class="img-placeholder">[Pipeline overview schematic]</div>
-        <p>The pipeline embeds a resist convolution, stochastic exposure model and RIE‑etch lookup table inside an
+        <p>The pipeline embeds a resist convolution, nonlinear exposure model inside an
             adjoint‑based phase optimizer:</p>
         <ul>
             <li>Started from random dose <em>D</em> (256 levels).</li>
             <li>Simulated aerial image → resist profile → etched height map.</li>
-            <li>Forward diffracted field via Angular Spectrum Method.</li>
+            <li>Forward diffracted field via Angular Spectrum Method / Fresnel diffraction.</li>
             <li>Loss: wavefront error + fabrication fidelity term.</li>
             <li>Gradients back‑prop through all stages; updated with Adam.</li>
         </ul>
@@ -186,20 +186,19 @@
         <div class="img-placeholder">[SEM micrograph vs. simulation overlay]</div>
         <ul>
             <li><strong>4×</strong> reduction in RMS phase error (λ/50 ➜ λ/200 at 1,550 nm).</li>
-            <li>Diffractive efficiency ↑ 18 % compared with baseline Gerchberg–Saxton design.</li>
+            <li>Diffractive efficiency ↑ 20 % compared with baseline Gerchberg–Saxton design.</li>
             <li>First‑pass yield ↑ to 92 % across a 20 mm wafer (n = 36 DOEs).</li>
         </ul>
 
         <h2>Impact</h2>
-        <p>The method halves the iteration cycle for NIR DOE prototypes from six weeks to three and is now being adopted
+        <p>The method halves the iteration cycle for NIR/VIS DOE prototypes from six weeks to three and is now being adopted
             by an automotive LiDAR startup to fabricate high‑efficiency beam shapers.</p>
 
         <h2>Tech Stack</h2>
         <ul>
             <li><strong>PyTorch</strong> (autograd), CUDA kernels for resist convolution</li>
-            <li><strong>Zemax OpticStudio</strong> for initial phase target</li>
             <li>Python‑to‑GDS pipeline via <code>gdspy</code></li>
-            <li>SEM analysis in <strong>OpenCV</strong> + scikit‑image</li>
+            <li>SEM/confocal analysis in <strong>OpenCV</strong> + scikit‑image</li>
         </ul>
 
         <div class="btns">
